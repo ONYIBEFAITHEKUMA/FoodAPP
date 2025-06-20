@@ -2,6 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:foodvendor/feature_section.dart';
 import 'package:foodvendor/popular_section.dart';
+import 'package:foodvendor/try.dart';
+import 'package:foodvendor/try2.dart';
 import 'navbar/botton_navbar.dart';
 import 'image_section.dart';
 void main(List<String> args) {
@@ -29,15 +31,87 @@ class MyFoodAPP extends StatelessWidget {
           // title: Text(title),
           centerTitle: true,
         
-          leading: Icon(Icons.menu),
+          leading: Builder(builder: (
+            context){ 
+              return IconButton(icon: Icon(Icons.menu),
+          onPressed: () {
+            Scaffold.of(context).openDrawer();
+          }, 
+          );
+          },
+          ),
+        
+        
+          
           actions: [
             IconButton(onPressed: (){
               // my menus here...........
             },
             
            icon: Icon(Icons.notifications))
+           
           ],
+          backgroundColor: Colors.white,
+          
           ),
+          drawer: Drawer(
+
+          child: ListView(
+            
+            padding: EdgeInsets.all(12.0),
+            
+            children: [
+             
+              ListTile(
+                title: Text('Home ', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+                onTap: () {
+                  
+                  
+                },
+                
+              ),
+              ListTile(
+                title: Text('About Us ',style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+                onTap: () {
+      
+                  
+                },
+                
+              ),
+               ListTile(
+                title: Text('Our Team ' ,style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+                onTap: () {
+                
+                },
+                
+              ),
+              ListTile(
+                title: Text('Contact Us ' ,style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+                onTap: () {
+                
+                },
+                
+              ),
+               ListTile(
+                leading: Icon(Icons.people_alt_outlined),
+                title: Text('Vendors \nMeet Our Vendors' ,),
+                
+                onTap: () {
+                // Text('Become a Vendo'),
+                
+                },
+                
+              ),
+                  ListTile(
+                title: Text('Contact Us ' ),
+                onTap: () {
+                
+                },)
+              // Navigator.pop(context)
+            ],
+          ),
+        ),
+      
 
            body: SingleChildScrollView(
           child: Column(
@@ -73,8 +147,10 @@ class MyFoodAPP extends StatelessWidget {
               ),
              
               ImageSection(),
-              PopularSection(),
-              FeatureSection(),
+              // PopularSection(),
+              // FeatureSection(),
+              // TrySection(),
+              // Try2Section()
    
              
              

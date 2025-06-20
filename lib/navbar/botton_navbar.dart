@@ -1,26 +1,48 @@
 import 'package:flutter/material.dart';
+import '../pages/order_page.dart';
+import '../pages/homepage.dart';
+import '../pages/profile_page.dart';
 
-class BottonNavbar extends StatefulWidget {
+class BottonNavbar extends StatelessWidget {
   const BottonNavbar({super.key});
 
-  @override
-  State<BottonNavbar> createState() => _BottonNavbarState();
-}
+  void _navigateTo(BuildContext context, int index) {
+    switch (index) {
+      case 0:
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const Homepage()),
+        );
+        break;
+      case 1:
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const OrderPage()),
+        );
+        break;
+      case 2:
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const ProfilePage()),
+        );
+        break;
+    }
+  }
 
-class _BottonNavbarState extends State<BottonNavbar> {
   @override
   Widget build(BuildContext context) {
     return NavigationBar(
-      destinations: [
-        NavigationDestination(icon: Icon(Icons.home), label: 'home'),
-        NavigationDestination(icon: Icon(Icons.shopping_basket), label: 'shopping'),
-       
-
-        NavigationDestination(icon: Icon(Icons.person), label: 'person'),
-      ],
       backgroundColor: Colors.black,
-    // labelTextStyle: ,  
+      onDestinationSelected: (index) => _navigateTo(context, index),
+      selectedIndex: 0,
+      destinations: const [
+        NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
+        NavigationDestination(
+          icon: Icon(Icons.shopping_basket),
+          label: 'Shopping',
+        ),
+        NavigationDestination(icon: Icon(Icons.person), label: 'Profile'),
+      ],
     );
-    
   }
 }

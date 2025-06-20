@@ -20,6 +20,14 @@ class _FeatureSectionState extends State<FeatureSection> {
         
         ),
         Padding(padding: EdgeInsets.symmetric(horizontal: 12.0),
+        child: SelectableText('''Two households, both alike in dignity,
+In fair Verona, where we lay our scene,
+From ancient grudge break to new mutiny,
+Where civil blood makes civil hands unclean.
+From forth the fatal loins of these two foes''' , style: TextStyle(fontSize: 14),),),
+        
+        Padding(padding: EdgeInsets.symmetric(horizontal: 12.0),
+        
         child: SingleChildScrollView(
            scrollDirection: Axis.horizontal,
           child: 
